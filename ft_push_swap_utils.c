@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:04:18 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/22 11:38:02 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:00:06 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,51 +27,12 @@ void	ft_putstr(int fd, char *str)
 	}
 }
 
-// get the actual size of an array
-// max_size is the maximum size, the space that is allocated
-// actual size is the number of positive numbers in the array
-// -1 means an empty cell, so we stop when we find the 1st empty cell
-int	get_actual_size(int *arr, int max_size)
-{
-	int	i;
-
-	if (!arr || max_size < 1)
-		return (0);
-	i = 0;
-	while (i < max_size)
-	{
-		if (arr[i] == -1)
-			return (i);
-		i++;
-	}
-	return (i);
-}
-
-// allocates memory for new table of ints, fill it with -1 and returns it
-int	*init(int size)
-{
-	int	*arr;
-	int	i;
-
-	arr = malloc(size * sizeof(int));
-	if (!arr)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		arr[i] = -1;
-		i++;
-	}
-	return (arr);
-}
-
 // returns 1 if array is sorted asceding or desceding, 0 otherwise
 int	is_sorted(int *arr, int size)
 {
 	int	i;
-	int is_sorted;
+	int	is_sorted;
 
-	size = get_actual_size(arr, size);
 	if (!arr || size < 1)
 		return (0);
 	if (size == 1)
@@ -94,13 +55,12 @@ int	is_sorted(int *arr, int size)
 // returns 1 if value is included on arr, 0 otherwise
 int	is_included(int *arr, int size, int value)
 {
-	int	actual_size;
 	int	i;
 
 	if (!arr || size < 1)
 		return (0);
 	i = 0;
-	while (arr[i] != -1 && i < size)
+	while (i < size)
 	{
 		if (arr[i] == value)
 			return (1);
