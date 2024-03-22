@@ -6,9 +6,11 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 09:39:05 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/22 09:40:19 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/22 10:04:56 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_push_swap.h"
 
 // swaps first 2 elements of table
 void	swap(int *arr, int size)
@@ -74,7 +76,7 @@ void	shift_right(int *arr, int size)
 
 // removes 1st elemet of arr_src and put it as 1st element at arr_dst
 // all other element of dst go one place left
-void	push_table(int *arr_dst, int size_dst, int *arr_src, int size_src)
+void	push(int *arr_dst, int size_dst, int *arr_src, int size_src)
 {
 	int	i;
 	int	actual_size;
