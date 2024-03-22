@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:00:34 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/22 12:11:20 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/22 14:23:55 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	main(int argc, char *argv[])
 	arr_b = malloc(size_a * sizeof(int));
 	if (!arr_b)
 		return (0);
+	// print_array(arr_a, size_a, 'a');
+	quicksort(arr_a, size_a, arr_b, size_b);
 }
 
 void	print_array(int *arr, int size, char c)
