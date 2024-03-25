@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:53:42 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/21 10:14:48 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:32:28 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static long	get_int(const char *str, int i, int sign);
 
 // checks if initial args are valid and print error if not on stderror(fd 2)
 // returns 1 if are valid, 0 otherwise
-// error means not integer value, overflow-underflow, duplicates
+// error means not integer value, overflow-underflow, duplicates, 0 args
 int	*is_valid(int argc, char *argv[])
 {
 	int	i;
@@ -41,6 +41,7 @@ int	*is_valid(int argc, char *argv[])
 	}
 	if (has_daplicates(args_arr, argc - 1))
 	{
+		ft_putstr(2, "Error\n");
 		free(args_arr);
 		return (NULL);
 	}

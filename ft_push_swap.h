@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:03:05 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/22 14:23:35 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:25:16 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ void	shift_left(int *arr, int size);
 void	swap(int *arr, int size);
 // declarations for validation.c
 int		*is_valid(int argc, char *argv[]);
-// declarations for quicksort.c
+// declarations for ft_push_swap.c
 void	print_array(int *arr, int size, char c);
-int		sort_stack(int *arr_src, int *size_s, int *arr_dst, int *size_d, int *pivot_arr, int *size_pivot);
-int	quicksort(int *arr_a, int size_a, int *arr_b, int size_b);
+// declarations for quicksort.c
+// int		sort_stack(int *arr_src, int *size_s, int *arr_dst, int *size_d, int *pivot_arr, int *size_pivot);
+// int		quicksort(int *arr_a, int size_a, int *arr_b, int size_b);
+// declarations of radix.c
+int	*create_index(int *arr_a, int size_a);
 #endif

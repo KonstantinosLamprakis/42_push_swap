@@ -6,12 +6,13 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:00:34 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/22 14:23:55 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:31:01 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // TODO: remove stdio from .h
-// cc -Wall -Wextra -Werror *.h *.c && ./a.out 43 56 12 0 -134 5455 -2
+// cc -Wall -Wextra -Werror *.h *.c && ./a.out
+// TODO delete print_array func from .h
 
 #include "ft_push_swap.h"
 
@@ -21,7 +22,9 @@ int	main(int argc, char *argv[])
 {
 	int	*arr_a;
 	int	*arr_b;
+	int	*arr_i;
 	int	size_a;
+	int	size_i;
 	int	size_b;
 
 	size_a = argc - 1;
@@ -34,9 +37,22 @@ int	main(int argc, char *argv[])
 	size_b = 0;
 	arr_b = malloc(size_a * sizeof(int));
 	if (!arr_b)
+	{
+		free (arr_a);
 		return (0);
-	// print_array(arr_a, size_a, 'a');
-	quicksort(arr_a, size_a, arr_b, size_b);
+	}
+	puts("Initial Array");
+	print_array(arr_a, size_a, 'a');
+	size_i = size_a;
+	arr_i = create_index(arr_a, size_a);
+	if (!arr_i)
+	{
+		free(arr_a);
+		free(arr_b);
+		return (0);
+	}
+	puts("Index Array");
+	print_array(arr_i, size_i, 'i');
 }
 
 void	print_array(int *arr, int size, char c)
