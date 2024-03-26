@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:03:05 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/26 05:49:59 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/26 06:23:31 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
+// # include <stdio.h>
 
 typedef struct s_stacks
 {
@@ -39,8 +39,6 @@ void	shift_left(int *arr, int size, char c);
 void	swap(int *arr, int size, char c);
 // declarations for validation.c
 int		*is_valid(int argc, char *argv[]);
-// declarations for ft_push_swap.c
-void	print_array(int *arr, int size, char c);
 // declarations of radix.c
 void	radix(t_stacks *stacks);
 // declarations of radix_utils.c

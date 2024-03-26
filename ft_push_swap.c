@@ -6,13 +6,11 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:00:34 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/26 05:55:54 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/26 06:23:20 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: remove stdio from .h
 // cc -Wall -Wextra -Werror *.h *.c && ./a.out
-// TODO delete print_array func from .h
 
 #include "ft_push_swap.h"
 
@@ -26,7 +24,6 @@ int	main(int argc, char *argv[])
 	stacks.b_size = 0;
 	stacks.a_size_ptr = &stacks.a_size;
 	stacks.b_size_ptr = &stacks.b_size;
-	printf("Initial size: %d\n", stacks.a_size);
 	if (argc == 1)
 		return (0);
 	stacks.a = is_valid(argc, argv);
@@ -38,17 +35,9 @@ int	main(int argc, char *argv[])
 		free (stacks.a);
 		return (0);
 	}
-	puts("Initial Array");
-	print_array(stacks.a, stacks.a_size, 'a');
 	create_index(&stacks.a, stacks.a_size);
-	puts("Index Array");
-	print_array(stacks.a, stacks.a_size, 'a');
-	sort_less_than_5(&stacks);
 	if (!sort_less_than_5(&stacks))
 		radix(&stacks);
-	puts("Final Arrays");
-	print_array(stacks.a, stacks.a_size, 'a');
-	print_array(stacks.b, stacks.b_size, 'b');
 	if (stacks.a)
 		free(stacks.a);
 	if (stacks.b)
@@ -56,24 +45,24 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
-void	print_array(int *arr, int size, char c)
-{
-	int	i;
+// void	print_array(int *arr, int size, char c)
+// {
+// 	int	i;
 
-	if (!arr || size < 1)
-	{
-		printf ("\nEmpty array: %c, nothing to print.\n\n", c);
-		return ;
-	}
-	printf("\nPrinting array: %c\nsize: %d\n", c, size);
-	i = 0;
-	while (i < size)
-	{
-		printf("%d ", arr[i]);
-		i++;
-	}
-	printf("\n\n");
-}
+// 	if (!arr || size < 1)
+// 	{
+// 		printf ("\nEmpty array: %c, nothing to print.\n\n", c);
+// 		return ;
+// 	}
+// 	printf("\nPrinting array: %c\nsize: %d\n", c, size);
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		printf("%d ", arr[i]);
+// 		i++;
+// 	}
+// 	printf("\n\n");
+// }
 
 // Testing
 	// print_array(stacks.a, stacks.a_size, 'a');
