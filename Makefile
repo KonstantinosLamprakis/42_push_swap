@@ -13,9 +13,6 @@ all: $(NAME)
 $(NAME): $(OBJS) $(HEADER)
 	cc $(CFLAGS) -I$(HEADER) $(OBJS) -o $@
 
-# $(OBJS): %.o: %.c $(HEADER)
-# 	cc $(CFLAGS) -I$(HEADER) -c $< -o $@
-
 clean:
 	rm -f $(OBJS)
 
