@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:00:34 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/25 09:31:01 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/26 03:20:59 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,27 @@ void	print_array(int *arr, int size, char c);
 
 int	main(int argc, char *argv[])
 {
-	int	*arr_a;
-	int	*arr_b;
-	int	*arr_i;
-	int	size_a;
-	int	size_i;
-	int	size_b;
+	t_stacks	stacks;
 
-	size_a = argc - 1;
-	printf("Initial size: %d\n", argc -1);
+	stacks.a_size = argc - 1;
+	printf("Initial size: %d\n", stacks.a_size);
 	if (argc == 1)
 		return (0);
-	arr_a = is_valid(argc, argv);
-	if (!arr_a)
+	stacks.a = is_valid(argc, argv);
+	if (!stacks.a)
 		return (0);
-	size_b = 0;
-	arr_b = malloc(size_a * sizeof(int));
-	if (!arr_b)
+	stacks.b_size = 0;
+	stacks.b = malloc(stacks.a_size * sizeof(int));
+	if (!stacks.b)
 	{
-		free (arr_a);
+		free (stacks.a);
 		return (0);
 	}
 	puts("Initial Array");
-	print_array(arr_a, size_a, 'a');
-	size_i = size_a;
-	arr_i = create_index(arr_a, size_a);
-	if (!arr_i)
-	{
-		free(arr_a);
-		free(arr_b);
-		return (0);
-	}
+	print_array(stacks.a, stacks.a_size, 'a');
+	create_index(&stacks.a, stacks.a_size);
 	puts("Index Array");
-	print_array(arr_i, size_i, 'i');
+	print_array(stacks.a, stacks.a_size, 'a');
 }
 
 void	print_array(int *arr, int size, char c)
@@ -75,16 +63,18 @@ void	print_array(int *arr, int size, char c)
 }
 
 // Testing
-	// print_array(arr_a, size_a, 'a');
-	// push(arr_b, &size_b, arr_a, &size_a);
-	// push(arr_b, &size_b, arr_a, &size_a);
-	// print_array(arr_a, size_a, 'a');
-	// print_array(arr_b, size_b, 'b');
-	// shift_left(arr_a, size_a);
-	// shift_left(arr_a, size_a);
-	// shift_left(arr_a, size_a);
-	// print_array(arr_a, size_a, 'a');
-	// shift_right(arr_b, size_b);
-	// print_array(arr_b, size_b, 'b');
-	// swap(arr_a, size_a);
-	// print_array(arr_a, size_a, 'a');
+	// print_array(stacks.a, stacks.a_size, 'a');
+	// push_b(stacks, &stacks.a_size, &stacks.b_size);
+	// push_b(stacks, &stacks.a_size, &stacks.b_size);
+	// print_array(stacks.a, stacks.a_size, 'a');
+	// print_array(stacks.b, stacks.b_size, 'b');
+	// shift_left(stacks.a, stacks.a_size, 'a');
+	// shift_left(stacks.a, stacks.a_size, 'a');
+	// shift_left(stacks.a, stacks.a_size, 'a');
+	// print_array(stacks.a, stacks.a_size, 'a');
+	// shift_right(stacks.b, stacks.b_size, 'b');
+	// print_array(stacks.b, stacks.b_size, 'b');
+	// swap(stacks.a, stacks.a_size, 'a');
+	// push_a(stacks, &stacks.a_size, &stacks.b_size);
+	// push_a(stacks, &stacks.a_size, &stacks.b_size);
+	// print_array(stacks.a, stacks.a_size, 'a');
