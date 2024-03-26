@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:00:34 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/26 04:34:08 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/26 05:55:54 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ int	main(int argc, char *argv[])
 	puts("Index Array");
 	print_array(stacks.a, stacks.a_size, 'a');
 	sort_less_than_5(&stacks);
+	if (!sort_less_than_5(&stacks))
+		radix(&stacks);
+	puts("Final Arrays");
+	print_array(stacks.a, stacks.a_size, 'a');
+	print_array(stacks.b, stacks.b_size, 'b');
+	if (stacks.a)
+		free(stacks.a);
+	if (stacks.b)
+		free(stacks.b);
+	return (0);
 }
 
 void	print_array(int *arr, int size, char c)
