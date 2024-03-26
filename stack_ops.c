@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 09:39:05 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/26 03:17:40 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/26 03:53:01 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	shift_right(int *arr, int size, char c)
 
 // removes 1st elemet of arr_b and put it as 1st element at arr_a
 // all other element of dst go one place left
-void	push_a(t_stacks stacks, int *size_a, int *size_b)
+void	push_a(t_stacks stacks)
 {
 	int	i;
 
@@ -93,14 +93,14 @@ void	push_a(t_stacks stacks, int *size_a, int *size_b)
 		i++;
 	}
 	stacks.b[stacks.b_size - 1] = -1;
-	(*size_a)++;
-	(*size_b)--;
+	(*stacks.a_size_ptr)++;
+	(*stacks.b_size_ptr)--;
 	write(1, "pa\n", 3);
 }
 
 // removes 1st elemet of arr_a and put it as 1st element at arr_b
 // all other element of dst go one place left
-void	push_b(t_stacks stacks, int *size_a, int *size_b)
+void	push_b(t_stacks stacks)
 {
 	int	i;
 
@@ -120,7 +120,7 @@ void	push_b(t_stacks stacks, int *size_a, int *size_b)
 		i++;
 	}
 	stacks.a[stacks.a_size - 1] = -1;
-	(*size_a)--;
-	(*size_b)++;
+	(*stacks.a_size_ptr)--;
+	(*stacks.b_size_ptr)++;
 	write(1, "pb\n", 3);
 }

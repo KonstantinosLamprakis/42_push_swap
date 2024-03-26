@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:00:34 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/26 03:20:59 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/26 04:34:08 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ int	main(int argc, char *argv[])
 	t_stacks	stacks;
 
 	stacks.a_size = argc - 1;
+	stacks.b_size = 0;
+	stacks.a_size_ptr = &stacks.a_size;
+	stacks.b_size_ptr = &stacks.b_size;
 	printf("Initial size: %d\n", stacks.a_size);
 	if (argc == 1)
 		return (0);
 	stacks.a = is_valid(argc, argv);
 	if (!stacks.a)
 		return (0);
-	stacks.b_size = 0;
 	stacks.b = malloc(stacks.a_size * sizeof(int));
 	if (!stacks.b)
 	{
@@ -41,6 +43,7 @@ int	main(int argc, char *argv[])
 	create_index(&stacks.a, stacks.a_size);
 	puts("Index Array");
 	print_array(stacks.a, stacks.a_size, 'a');
+	sort_less_than_5(&stacks);
 }
 
 void	print_array(int *arr, int size, char c)

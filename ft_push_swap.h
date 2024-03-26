@@ -6,7 +6,7 @@
 /*   By: klamprak <klamprak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 09:03:05 by klamprak          #+#    #+#             */
-/*   Updated: 2024/03/26 03:21:32 by klamprak         ###   ########.fr       */
+/*   Updated: 2024/03/26 04:18:30 by klamprak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_stacks
 	int	*b;
 	int	a_size;
 	int	b_size;
+	int	*a_size_ptr;
+	int	*b_size_ptr;
 }		t_stacks;
 
 // declarations for ft_push_swap_utils.c
@@ -30,8 +32,8 @@ void	ft_putstr(int fd, char *str);
 int		is_sorted(int *arr, int size);
 int		is_included(int *arr, int size, int value);
 // declarations for stack_ops.c
-void	push_a(t_stacks stacks, int *size_a, int *size_b);
-void	push_b(t_stacks stacks, int *size_a, int *size_b);
+void	push_a(t_stacks stacks);
+void	push_b(t_stacks stacks);
 void	shift_right(int *arr, int size, char c);
 void	shift_left(int *arr, int size, char c);
 void	swap(int *arr, int size, char c);
@@ -39,10 +41,8 @@ void	swap(int *arr, int size, char c);
 int		*is_valid(int argc, char *argv[]);
 // declarations for ft_push_swap.c
 void	print_array(int *arr, int size, char c);
-// declarations for quicksort.c
-// int	sort_stack(int *arr_src, int *size_s, int *arr_dst,
-// int *size_d, int *pivot_arr, int *size_pivot);
-// int	quicksort(int *arr_a, int size_a, int *arr_b, int size_b);
 // declarations of radix.c
 void	create_index(int **arr_a, int size_a);
+// declarations of radix_utils.c
+int		sort_less_than_5(t_stacks *stacks);
 #endif
